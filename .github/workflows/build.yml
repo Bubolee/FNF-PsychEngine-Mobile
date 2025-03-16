@@ -74,6 +74,8 @@ jobs:
           haxelib run lime config ANDROID_NDK_ROOT ${{ steps.setup-ndk.outputs.ndk-path }}
           haxelib run lime config JAVA_HOME $JAVA_HOME_17_arm64
           haxelib run lime config ANDROID_SETUP true
+        env:
+          ANDROID_HOME: ${{ env.ANDROID_HOME }}
 
       - name: Compile
         run: haxelib run lime build ${{ inputs.buildArgs }}
